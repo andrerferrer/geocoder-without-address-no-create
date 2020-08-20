@@ -1,6 +1,6 @@
 # GOAL
 
-This is a demo to show-case how to implement the `geocoder` gem in a model, adding the coordinates according to the address.
+This is a demo to show-case how to geocode with no `address` but with street, city, zip and country as individual columns.
 
 This demo was created from [this other one](https://github.com/andrerferrer/geocoder-gem#goal)
 
