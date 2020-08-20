@@ -2,36 +2,46 @@
 
 This is a demo to show-case how to geocode with no `address` but with street, city and country as individual columns.
 
-This demo was created from [this other one](https://github.com/andrerferrer/geocoder-gem#goal)
+This demo was created from [this other one](https://github.com/andrerferrer/geocoder-gem#goal).
 
 [You can also check my other demos](https://github.com/andrerferrer/dedemos/blob/master/README.md#ded%C3%A9mos).
 
 ## What needs to be done?
 
-### 1. Add the gem
-```ruby
-# Gemfile
-gem 'geocoder'
-```
+### 1. [Have everything set with the geocoder gem](https://github.com/andrerferrer/geocoder-gem#goal)
 
-Remember to `bundle install`.
+### 2. Implement some callbacks in the model
 
-### 1. Add the latitude and longitude to the model
-
-`rails g migration AddCoordinatesToModel latitude:float longitude:float`
-
-Run the migration
-
-`rails db:migrate`
-
-### 1. Add `geocoder` to the model
+`app/models/restaurant.rb`
 
 ```ruby
-  # In the model
+class Restaurant < ApplicationRecord
+  
+  # lots of things above here...
+
   geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+  # This is going to make geocode run after validation
+  # Check AR callbacks -> https://guides.rubyonrails.org/active_record_callbacks.html
+  after_validation :geocode
+
+  def address
+     "#{street}, #{city}, #{country}"
+  end
+end
 ```
 
+### 3. Create something in you console and see the magic
+
+`rails console`
+
+```ruby 
+Restaurant.create!( 
+  name: "Amareleen", 
+  street: "Ladeira da Glória, 8 - Glória",
+  city: "Rio de Janeiro - RJ",
+  country: "Brazil"
+)
+```
 
 And we're good to go 🤓
 
