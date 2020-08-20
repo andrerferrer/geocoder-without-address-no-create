@@ -1,6 +1,6 @@
 # GOAL
 
-This is a demo to show-case how to geocode with no `address` but with street, city, zip and country as individual columns.
+This is a demo to show-case how to geocode with no `address` but with street, city and country as individual columns.
 
 This demo was created from [this other one](https://github.com/andrerferrer/geocoder-gem#goal)
 
