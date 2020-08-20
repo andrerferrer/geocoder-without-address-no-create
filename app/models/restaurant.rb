@@ -6,5 +6,11 @@ class Restaurant < ApplicationRecord
   has_many :reviews
 
   geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+  # This is going to make geocode run after validation
+  # Check AR callbacks -> https://guides.rubyonrails.org/active_record_callbacks.html
+  after_validation :geocode
+
+  def address
+     "#{street}, #{city}, #{country}"
+  end
 end
