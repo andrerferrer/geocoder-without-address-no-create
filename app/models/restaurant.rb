@@ -1,7 +1,9 @@
 class Restaurant < ApplicationRecord
   STRONG_PARAMS = %i[
     name
-    address
+    street
+    city
+    country
   ]
   has_many :reviews
 
