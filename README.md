@@ -2,6 +2,8 @@
 
 This is a demo to show-case how to implement the `geocoder` gem in a model, adding the coordinates according to the address.
 
+This demo was created from [this other one](git@github.com:andrerferrer/geocoder-gem.git)
+
 [You can also check my other demos](https://github.com/andrerferrer/dedemos/blob/master/README.md#ded%C3%A9mos).
 
 ## What needs to be done?
