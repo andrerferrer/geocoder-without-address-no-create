@@ -1,7 +1,13 @@
 puts "Create some Restaurants"
 
-Restaurant.create! name: "Amareleen", address: "Ladeira da Glória, 8 - Glória, Rio de Janeiro - RJ, 22211-120"
-Restaurant.create! name: "Verdeen", address: "Ladeira da Glória, 8 - Glória, Rio de Janeiro - RJ, 22211-120"
+address = { 
+  street: "Ladeira da Glória, 8 - Glória",
+  city: "Rio de Janeiro - RJ",
+  country: "Brazil"
+}
+
+Restaurant.create! name: "Amareleen", **address
+Restaurant.create! name: "Verdeen", **address
 
 puts "Let's drink a beer"
 puts %{
